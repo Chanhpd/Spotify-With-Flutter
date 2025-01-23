@@ -49,7 +49,9 @@ class SignupPage extends StatelessWidget {
                           password: _password.text.toString()));
                   result.fold((l) {
                     var snackBar = SnackBar(content: Text(l));
+                    print(l);
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
                   }, (r) {
                     Navigator.pushAndRemoveUntil(
                         context,
