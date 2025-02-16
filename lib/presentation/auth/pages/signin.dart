@@ -7,14 +7,30 @@ import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/data/models/auth/signin_user_req.dart';
 import 'package:spotify/domain/usecases/auth/signin.dart';
 import 'package:spotify/presentation/auth/pages/signup.dart';
-import 'package:spotify/presentation/root/pages/root.dart';
+import 'package:spotify/presentation/home/pages/home.dart';
+
 import 'package:spotify/service_locator.dart';
 
-class SigninPage extends StatelessWidget {
+class SigninPage extends StatefulWidget {
   SigninPage({super.key});
 
+
+
+  @override
+  State<SigninPage> createState() => _SigninPageState();
+}
+
+class _SigninPageState extends State<SigninPage> {
   final TextEditingController _email = TextEditingController();
+
   final TextEditingController _password = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _email.text = "chanh123@gmail.com";
+    _password.text = "chanh123";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +69,7 @@ class SigninPage extends StatelessWidget {
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                            builder: (BuildContext) => const RootPage()),
+                            builder: (BuildContext) => const HomePage()),
                         (route) => false);
                   });
                 },
